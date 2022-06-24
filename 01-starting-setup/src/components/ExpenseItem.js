@@ -1,12 +1,16 @@
-import './ExpenseItem.css';
+import "./ExpenseItem.css";
 
 export default function ExpenseItem() {
-  return(
-    <div className='expense-item'>
-      <div>24 June 2022</div>
-      <div className='expense-item__description'>
-        <h2>Car Insurance</h2>
-        <div className='expense-item__price'>$311.57</div>
+  const expenseDate = new Date(2022, 6, 24);
+  const expenseTitle = 'Car Insurance';
+  const expenseAmount = 311.57;
+
+  return (
+    <div className="expense-item">
+      <div>{expenseDate.toISOString()}</div>
+      <div className="expense-item__description">
+        <h2>{expenseTitle}</h2>
+        <div className="expense-item__price">{expenseAmount}</div>
       </div>
     </div>
   );
