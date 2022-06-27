@@ -29,13 +29,35 @@ export default function ExpenseForm() {
     }));
   };
 
+  const submitHandler = event => {
+    // Prevent the page from refreshing after an onSubmit event.
+    event.preventDefault();
+
+    const { enteredTitle, enteredAmount, enteredDate } = userInput;
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData); // Remove test code.
+    
+    // Clear the form at the end of the onSubmit handler.
+    setUserInput({
+      enteredTitle: '',
+      enteredAmount: '',
+      enteredDate: '',
+    });
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
           <input
             type='text'
+            value={userInput.enteredTitle}
             onChange={titleChangeHandler}
           />
         </div>
@@ -45,6 +67,8 @@ export default function ExpenseForm() {
           <input
             type='number'
             min='0.01'
+            step='0.01'
+            value={userInput.enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -54,6 +78,7 @@ export default function ExpenseForm() {
           <input
             type='date'
             min='2019-01-01' max='2022-12-31'
+            value={userInput.enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
