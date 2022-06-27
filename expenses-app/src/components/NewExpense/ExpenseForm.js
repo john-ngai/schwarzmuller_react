@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
   const [userInput, setUserInput] = useState({
     enteredTitle: '',
     enteredAmount: '',
@@ -40,7 +40,7 @@ export default function ExpenseForm() {
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData); // Remove test code.
+    props.onSaveExpenseData(expenseData);
     
     // Clear the form at the end of the onSubmit handler.
     setUserInput({
