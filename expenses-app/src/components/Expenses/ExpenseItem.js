@@ -1,10 +1,11 @@
+// Components
 import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
+// Stylesheets
 import "./ExpenseItem.css";
 
 export default function ExpenseItem(props) {
-  const { title, amount, date } = props;
-
+  const { amount, date } = props;
   return (
     <Card className="expense-item">
       <ExpenseDate date={date} />
