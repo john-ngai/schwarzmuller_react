@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 export default function ExpenseForm(props) {
+  const { onSaveExpenseData, onCancel } = props;
   const [userInput, setUserInput] = useState({
     enteredTitle: '',
     enteredAmount: '',
@@ -40,7 +41,7 @@ export default function ExpenseForm(props) {
       date: new Date(enteredDate),
     };
 
-    props.onSaveExpenseData(expenseData);
+    onSaveExpenseData(expenseData);
 
     // Clear the form at the end of the onSubmit handler.
     setUserInput({
@@ -86,7 +87,9 @@ export default function ExpenseForm(props) {
       </div>
 
       <div className="new-expense__actions">
-        <button onClick={() => setDisplayForm(false)}>Back</button>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
