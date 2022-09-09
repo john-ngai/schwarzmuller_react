@@ -35,8 +35,7 @@ export default function Expenses({ items }) {
         onChangeFilter={filterChangeHandler}
         filteredYear={filteredYear}
       />
-      <ExpensesChart expenses={filteredExpenses}
-       />
+      <ExpensesChart expenses={filteredExpenses} />
       {expensesContent}
     </Card>
   );

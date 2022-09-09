@@ -1,8 +1,6 @@
-// Components
-import Card from "../UI/Card";
-import ExpenseDate from "./ExpenseDate";
-// Stylesheets
-import "./ExpenseItem.css";
+import Card from '../UI/Card';
+import ExpenseDate from './ExpenseDate';
+import './ExpenseItem.css';
 
 export default function ExpenseItem(props) {
   const { amount, date, title } = props;
